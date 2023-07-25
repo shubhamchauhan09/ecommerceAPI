@@ -1,6 +1,7 @@
 // controllers/productsController.js
 const Product = require('../models/products');
 
+// create product api , getting name and quantity from request
 exports.createProduct = async(req, res, next) => {
     try {
         const { name, quantity } = req.body;
@@ -11,6 +12,7 @@ exports.createProduct = async(req, res, next) => {
     }
 };
 
+// get all the list of products from db
 exports.listProducts = async(req, res, next) => {
     try {
         const products = await Product.find();
@@ -20,6 +22,7 @@ exports.listProducts = async(req, res, next) => {
     }
 };
 
+// delete a product by getting id as params in request
 exports.deleteProduct = async(req, res, next) => {
     try {
         const { id } = req.params;
@@ -30,6 +33,7 @@ exports.deleteProduct = async(req, res, next) => {
     }
 };
 
+// update a product by getting id and number to be updated to from params and query in request
 exports.updateProductQuantity = async(req, res, next) => {
     try {
         const { id } = req.params;
