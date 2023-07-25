@@ -35,7 +35,7 @@ exports.updateProductQuantity = async(req, res, next) => {
         const { id } = req.params;
         const { number } = req.query;
         const product = await Product.findByIdAndUpdate(
-            id, { $inc: { quantity: parseInt(number) } }, { new: true }
+            id, { $set: { quantity: parseInt(number) } }, { new: true }
         );
         res.json({ product, message: 'Updated successfully' });
     } catch (err) {
